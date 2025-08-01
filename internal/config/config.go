@@ -65,7 +65,8 @@ func Load() *Config {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 			log.Println("Config file not found, using environment variables and defaults")
 		} else {
-			log.Fatalf("Error reading config file: %v", err)
+			log.Printf("Warning: Error reading config file: %v", err)
+			log.Println("Continuing with environment variables and defaults")
 		}
 	}
 
